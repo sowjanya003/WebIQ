@@ -1,0 +1,55 @@
+
+{% extends 'users/base.html' %}
+
+{% block style %}
+<style type="text/css">
+    button {
+            display: inline-block;
+            background: #ea4c88;;
+            color: #606468;
+            border: 0;
+            border-radius: 4px;
+            text-align: center;
+            padding: 20px 30px;
+            line-height: 1;
+            text-decoration: none;
+        }
+    registration{
+
+    }
+</style>
+{% endblock style %}
+
+
+{% block content %}
+<div class="registeration">
+    <br>
+    <div class="register page">
+    <div class="alert alert-success" style= " background: none;
+    border: none ; color:#606468;" role="alert">
+        <h3 style="text-align: center; color: #606468;">Register</h3>
+    </div>
+    <br>
+    <div class="image" >
+        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+                                
+    </div>
+    <br>
+    <form  action="" method="POST">
+    {% csrf_token %}
+
+    {% for field in form %}
+        <div>
+            <p>{{ field.label }}: <br> {{ field }}</p> 
+
+            {% for error in field.errors %}
+                <small style="color: red">{{ error }}</small>
+            {% endfor %}
+        </div>
+    {% endfor %}
+    <button type="submit">Register</button>
+</form>
+    </form>
+</div>
+</div>
+{% endblock content%}

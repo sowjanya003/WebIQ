@@ -1,0 +1,45 @@
+{% extends 'users/base.html' %}
+
+{% block style %}
+<style type="text/css">
+    button {
+            display: inline-block;
+            background: #ea4c88;;
+            color: #606468;;
+            border: 0;
+            border-radius: 4px;
+            text-align: center;
+            padding: 20px 30px;
+            line-height: 1;
+            text-decoration: none;
+        }
+        
+        
+
+</style>
+{% endblock style %}
+
+{% block content %}
+<div class="signin_page">
+  <br>
+  <div class="bord">
+  <div class="login page" align="center" style=" border:1 ; border-color: gray;">
+  <div class="alert alert-success" style= " background: none;
+    border: none ; color:#606468;" role="alert">
+    <h2 style="text-align: center;">Login</h2>
+  </div>
+  <form action="" method="POST">
+    {% csrf_token %}
+    {% for field in form %}
+        <p>{{ field.label }}: <br> {{ field }}</p>
+    {% endfor %}
+    <button type="submit" class="button">Login</button>
+</form>
+<br>
+<p>Don't have an account? <a href="{% url 'register' %}">Signup here</a></p>
+</div>
+</div>
+</div>
+
+
+{% endblock content %}
